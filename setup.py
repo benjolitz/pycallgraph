@@ -30,6 +30,10 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
+requires = []
+if sys.version_info < (2, 7):
+    requires = ['argparse', 'StringFormat', 'ordereddict']
+
 setup(
     name='pycallgraph',
     version=pycallgraph.__version__,
@@ -43,11 +47,12 @@ setup(
     scripts=['scripts/pycallgraph'],
     data_files=data_files,
     use_2to3=True,
+    install_requires=requires,
 
     # TODO: Update download_url
-    download_url =
-    'http://pycallgraph.slowchop.com/files/download/pycallgraph-%s.tar.gz' % \
-        pycallgraph.__version__,
+    download_url=
+    'http://pycallgraph.slowchop.com/files/download/pycallgraph-%s.tar.gz' %
+    pycallgraph.__version__,
 
     # Testing
     tests_require=['pytest'],

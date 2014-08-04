@@ -4,6 +4,25 @@ of your Python application.
 
 See http://pycallgraph.slowchop.com/ for more information.
 '''
+try:
+    "{}".format(1)
+except ValueError:
+    try:
+        import stringformat
+    except ImportError:
+        raise ImportError(
+            "Cannot use '{}' in a format statement! Add StringFormat!")
+    else:
+        stringformat.init(True)
+except AttributeError:
+    try:
+        import stringformat
+    except ImportError:
+        raise ImportError(
+            "Cannot use '{}' in a format statement! Add StringFormat!")
+    else:
+        stringformat.init()
+
 from .metadata import __version__
 from .metadata import __copyright__
 from .metadata import __license__
