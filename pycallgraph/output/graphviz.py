@@ -127,16 +127,16 @@ class GraphvizOutput(Output):
         digraph G {{
 
             // Attributes
-            {}
+            {0}
 
             // Groups
-            {}
+            {1}
 
             // Nodes
-            {}
+            {2}
 
             // Edges
-            {}
+            {3}
 
         }}
         '''.format(
