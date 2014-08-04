@@ -187,7 +187,9 @@ class GraphvizOutput(Output):
                 'fontsize = "{group_font_size}"; '
                 'fontcolor = "black"; '
                 'style = "bold"; '
-                'color="{group_color}"; }}'.format(**locals()))
+                'color="{group_color}"; }}'.format(
+                    group=group, funcs=funcs,
+                    group_font_size=group_font_size, group_color=group_color))
         return output
 
     def generate_nodes(self):
