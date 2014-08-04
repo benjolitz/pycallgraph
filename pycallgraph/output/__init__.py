@@ -2,9 +2,9 @@ try:
     from collections import OrderedDict
 except ImportError as e:
     try:
-        import ordereddict as OrderedDict
+        from ordereddict import OrderedDict
     except ImportError:
-        raise e
+        raise ImportError("Cannot create OrderedDict instance")
 
 from .output import Output
 from .graphviz import GraphvizOutput
